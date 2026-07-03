@@ -33,6 +33,8 @@ public class SecurityConfig {
                 }))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.POST, "/api/demo-bookings").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/activities/submissions").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/gallery/**").permitAll()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .anyRequest().permitAll()
                 )
